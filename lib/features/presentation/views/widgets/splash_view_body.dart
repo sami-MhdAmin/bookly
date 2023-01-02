@@ -1,7 +1,6 @@
 import 'package:bookly/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 
-
 class SplashViewBody extends StatelessWidget {
   const SplashViewBody({super.key});
 
@@ -15,7 +14,13 @@ class SplashViewBody extends StatelessWidget {
         children: [
           Image.asset(AssetsData.logo),
           // Image.asset(AssetsData.starLogo),
-
+          const SizedBox(
+            height: 8,
+          ),
+          const Text(
+            'read free box',
+            textAlign: TextAlign.center,
+          ),
         ],
       ),
     );
