@@ -12,7 +12,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
-
+  late Animation<Offset> slidingAnimationStar;
   @override
   void initState() {
     // TODO: implement initState
@@ -23,8 +23,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
       duration: const Duration(seconds: 1),
     );
 
+    // animationStarController = AnimationController(
+    //   vsync: this,
+    //   duration: const Duration(seconds: 1),
+    // );
+
     slidingAnimation = Tween<Offset>(begin: Offset(0, 10), end: Offset.zero)
         .animate(animationController);
+
+    slidingAnimationStar = Tween<Offset>(begin: Offset(-3 , 0) , end: Offset.zero).animate(animationController);
 
     animationController.forward();
     // slidingAnimation.addListener(() {  // we don't need setState becaue we do AnimatedBuilder to the widget
@@ -53,6 +60,19 @@ class _SplashViewBodyState extends State<SplashViewBody>
             height: 8,
           ),
           SlidingText(slidingAnimation: slidingAnimation),
+          SlideTransition(
+            position: slidingAnimationStar,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+                const Icon(Icons.star),
+              ],
+            ),
+          ),
         ],
       ),
     );
