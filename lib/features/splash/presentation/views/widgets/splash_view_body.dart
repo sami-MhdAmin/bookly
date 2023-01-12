@@ -1,5 +1,8 @@
+import 'package:bookly/constant.dart';
 import 'package:bookly/core/utils/assets_data.dart';
+import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -17,7 +20,24 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     // TODO: implement initState
     super.initState();
+    //Solid principle : single responsibility principle
+    //y3ni t3ml al class ms2ol 3n sh3'leh wahdeh nfs alshi ll function bt5leh ,ms2ol 3n sh3'leh wahdeh
+    initSlidingAnimation();
 
+    navigateToHome();
+  }
+
+  void navigateToHome() {
+    Future.delayed(
+      const Duration(seconds: 2),
+      () {
+        Get.to(const HomeView(),
+            transition: Transition.fade, duration: kTransitionDuration);
+      },
+    );
+  }
+
+  void initSlidingAnimation() {
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 1),
@@ -31,7 +51,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
     slidingAnimation = Tween<Offset>(begin: Offset(0, 10), end: Offset.zero)
         .animate(animationController);
 
-    slidingAnimationStar = Tween<Offset>(begin: Offset(-3 , 0) , end: Offset.zero).animate(animationController);
+    slidingAnimationStar = Tween<Offset>(begin: Offset(-3, 0), end: Offset.zero)
+        .animate(animationController);
 
     animationController.forward();
     // slidingAnimation.addListener(() {  // we don't need setState becaue we do AnimatedBuilder to the widget
