@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -12,15 +14,22 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
-          
           CustomAppBar(),
           FeaturedBooksListView(),
-          SizedBox(height: 30,),
-          Text('Best Seller', style: Styles.textStyle18,),
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+            'Best Seller',
+            style: Styles.textStyle18,
+          ),
+          SizedBox(
+            height: 20,
+          ),
           ItemListView()
         ],
       ),
@@ -33,7 +42,7 @@ class ItemListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SizedBox(
+    return SizedBox(
       height: 125,
       child: Row(
         children: [
@@ -48,6 +57,22 @@ class ItemListView extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            width: 30,
+          ),
+          Column(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .5,
+                child: const Text(
+                  "Harry Poter And The Goblet Of Fire  Harry Poter And The Goblet Of Fire",
+                  style: Styles.textStyle20,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
