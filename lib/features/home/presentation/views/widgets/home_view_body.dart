@@ -1,12 +1,8 @@
-import 'dart:ui';
-
 import 'package:bookly/core/utils/styles.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/utils/assets_data.dart';
 import 'custom_app_bar.dart';
-import 'custom_list_view_item.dart';
 import 'featured_list_view.dart';
+import 'item_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -37,44 +33,3 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-class ItemListView extends StatelessWidget {
-  const ItemListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 125,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.5 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: Colors.red,
-                image: const DecorationImage(
-                    image: AssetImage(AssetsData.logo), fit: BoxFit.fill),
-              ),
-            ),
-          ),
-          const SizedBox(
-            width: 30,
-          ),
-          Column(
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .5,
-                child: const Text(
-                  "Harry Poter And The Goblet Of Fire  Harry Poter And The Goblet Of Fire",
-                  style: Styles.textStyle20,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
-    );
-  }
-}
