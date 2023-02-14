@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/assets_data.dart';
 import '../../../../../core/utils/styles.dart';
+import 'rating_bar.dart';
 
 class ItemListView extends StatelessWidget {
   const ItemListView({super.key});
@@ -41,13 +42,18 @@ class ItemListView extends StatelessWidget {
               const SizedBox(
                 height: 3,
               ),
-               const Text("J.K Sami Amin",style: Styles.textStyle14,),
-               const SizedBox(
+              const Text(
+                "J.K Sami Amin",
+                style: Styles.textStyle14,
+              ),
+              const SizedBox(
                 height: 3,
               ),
-              Text("19.99 \$ ",style: Styles.textStyle20.copyWith(
-                fontWeight: FontWeight.bold
-              ),),
+              Text(
+                "19.99 \$ ",
+                style: Styles.textStyle20.copyWith(fontWeight: FontWeight.bold),
+              ),
+              const RatingBar()
             ],
           )
         ],
