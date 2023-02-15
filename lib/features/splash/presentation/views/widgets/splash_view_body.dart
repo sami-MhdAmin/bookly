@@ -1,8 +1,9 @@
 import 'package:bookly/constant.dart';
+import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/core/utils/assets_data.dart';
 import 'package:bookly/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -18,7 +19,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late Animation<Offset> slidingAnimationStar;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     //Solid principle : single responsibility principle
     //y3ni t3ml al class ms2ol 3n sh3'leh wahdeh nfs alshi ll function bt5leh ,ms2ol 3n sh3'leh wahdeh
@@ -31,8 +31,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     Future.delayed(
       const Duration(seconds: 2),
       () {
-        Get.to(const HomeView(),
-            transition: Transition.fade, duration: kTransitionDuration);
+        GoRouter.of(context).push(AppRouter.kHomeView);
       },
     );
   }
@@ -48,10 +47,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
     //   duration: const Duration(seconds: 1),
     // );
 
-    slidingAnimation = Tween<Offset>(begin: Offset(0, 10), end: Offset.zero)
+    slidingAnimation = Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
         .animate(animationController);
 
-    slidingAnimationStar = Tween<Offset>(begin: Offset(-3, 0), end: Offset.zero)
+    slidingAnimationStar = Tween<Offset>(begin: const Offset(-3, 0), end: Offset.zero)
         .animate(animationController);
 
     animationController.forward();
@@ -62,7 +61,6 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     animationController.dispose();
   }
@@ -85,12 +83,12 @@ class _SplashViewBodyState extends State<SplashViewBody>
             position: slidingAnimationStar,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Icon(Icons.star),
-                const Icon(Icons.star),
-                const Icon(Icons.star),
-                const Icon(Icons.star),
-                const Icon(Icons.star),
+              children: const [
+                 Icon(Icons.star),
+                 Icon(Icons.star),
+                 Icon(Icons.star),
+                 Icon(Icons.star),
+                 Icon(Icons.star),
               ],
             ),
           ),
