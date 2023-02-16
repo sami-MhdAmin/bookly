@@ -1,16 +1,14 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
 
 class RatingBar extends StatelessWidget {
-  const RatingBar({
-    Key? key,
-  }) : super(key: key);
-
+  const RatingBar({super.key,  this.mainAxisAlignment = MainAxisAlignment.start});
+  final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: mainAxisAlignment,
       children: [
         const Icon(
           Icons.star,
@@ -28,8 +26,7 @@ class RatingBar extends StatelessWidget {
         ),
         Text(
           "(255)",
-          style: Styles.textStyle14
-              .copyWith(color: const Color(0xff707070)),
+          style: Styles.textStyle14.copyWith(color: const Color(0xff707070)),
         ),
       ],
     );
