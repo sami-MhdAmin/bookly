@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/services.dart';
 
-
 //1. to Hide Statusbar
 // SystemChrome.setEnabledSystemUIMode([SystemUiOverlay.bottom])
 
@@ -27,12 +26,13 @@ import 'package:flutter/services.dart';
 //   }
 
 void main() {
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: [SystemUiOverlay.top]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.top]);
 
   // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
- ));
+  ));
 
   runApp(const BooklyApp());
 }

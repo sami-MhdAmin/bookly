@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/utils/styles.dart';
 
 class RatingBar extends StatelessWidget {
-  const RatingBar({super.key,  this.mainAxisAlignment = MainAxisAlignment.start});
+  const RatingBar(
+      {super.key, this.mainAxisAlignment = MainAxisAlignment.start});
   final MainAxisAlignment mainAxisAlignment;
   @override
   Widget build(BuildContext context) {

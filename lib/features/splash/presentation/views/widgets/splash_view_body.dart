@@ -47,11 +47,13 @@ class _SplashViewBodyState extends State<SplashViewBody>
     //   duration: const Duration(seconds: 1),
     // );
 
-    slidingAnimation = Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
-        .animate(animationController);
+    slidingAnimation =
+        Tween<Offset>(begin: const Offset(0, 10), end: Offset.zero)
+            .animate(animationController);
 
-    slidingAnimationStar = Tween<Offset>(begin: const Offset(-3, 0), end: Offset.zero)
-        .animate(animationController);
+    slidingAnimationStar =
+        Tween<Offset>(begin: const Offset(-3, 0), end: Offset.zero)
+            .animate(animationController);
 
     animationController.forward();
     // slidingAnimation.addListener(() {  // we don't need setState becaue we do AnimatedBuilder to the widget
@@ -84,11 +86,11 @@ class _SplashViewBodyState extends State<SplashViewBody>
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                 Icon(Icons.star),
-                 Icon(Icons.star),
-                 Icon(Icons.star),
-                 Icon(Icons.star),
-                 Icon(Icons.star),
+                Icon(Icons.star),
+                Icon(Icons.star),
+                Icon(Icons.star),
+                Icon(Icons.star),
+                Icon(Icons.star),
               ],
             ),
           ),
