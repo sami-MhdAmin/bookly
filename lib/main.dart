@@ -33,14 +33,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 //   }
 
 void main() {
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+  /*SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.top]);
 
   // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
-
+*/
   //setupSeviceLocator() this is for running get it package
   setupSeviceLocator();
   runApp(const BooklyApp());
@@ -59,10 +59,14 @@ class BooklyApp extends StatelessWidget {
           // //the old code was
           // create: (context) =>
           //     FeaturedBooksCubit(HomeRepoImpl(ApiService(Dio()))),
-          create: (context) => FeaturedBooksCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => FeaturedBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchFeatureBooks(),
         ),
         BlocProvider(
-          create: (context) => NewestBooksCubit(getIt.get<HomeRepoImpl>()),
+          create: (context) => NewestBooksCubit(
+            getIt.get<HomeRepoImpl>(),
+          )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(
