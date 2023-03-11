@@ -1,3 +1,4 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -6,8 +7,9 @@ import 'custom_Book_view.dart';
 import 'rating_bar.dart';
 
 class BooksDetailsSection extends StatelessWidget {
-  const BooksDetailsSection({super.key});
-
+  const BooksDetailsSection({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -15,7 +17,9 @@ class BooksDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .22),
-          child: const CustomBookImage(imageUrl: '00',),
+          child: const CustomBookImage(
+            imageUrl: '00',
+          ),
         ),
         const SizedBox(
           height: 56,
@@ -39,8 +43,10 @@ class BooksDetailsSection extends StatelessWidget {
         const SizedBox(
           height: 18,
         ),
-        const RatingBar(
+        RatingBar(
           mainAxisAlignment: MainAxisAlignment.center,
+          count: 0,
+          rating: 0.0,
         ),
         const SizedBox(
           height: 46,

@@ -1,4 +1,5 @@
 import 'package:bookly/core/utils/styles.dart';
+import 'package:bookly/core/widget/custom_failure_message.dart';
 import 'package:bookly/core/widget/custom_loading_widget.dart';
 import 'package:bookly/features/home/presentation/manager/feature_books_cubit/featured_books_cubit.dart';
 import 'package:flutter/material.dart';
@@ -21,28 +22,22 @@ class FeaturedBooksListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return  Padding(
+                return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: CustomBookImage(
-                     imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ?? 'sam',
                   ),
                 );
               },
             ),
           );
         } else if (state is FeaturedBooksFailure) {
-          return Center(
-            child: Text(
-              state.errMessege,
-              style: Styles.textStyle18,
-            ),
-          );
+          return CustomFailureMessage(errMsg: state.errMessege);
         } else {
           return const Center(
-            child:  SizedBox(
-              height: 100,
-              width: 200,
-              child:  CustomLoadingWidget()),
+            child:
+                SizedBox(height: 100, width: 200, child: CustomLoadingWidget()),
           );
         }
       },
