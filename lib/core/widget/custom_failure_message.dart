@@ -14,6 +14,7 @@ class CustomFailureMessage extends StatelessWidget {
       child: Text(
         errMsg,
         style: Styles.textStyle18,
+        textAlign: TextAlign.center,
       ),
     );
   }

@@ -19,7 +19,7 @@ class ItemListView extends StatelessWidget {
         child: Row(
           children: [
             CustomBookImage(
-                imageUrl: bookModel.volumeInfo.imageLinks!.thumbnail),
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? "sam"),
             const SizedBox(
               width: 30,
             ),
