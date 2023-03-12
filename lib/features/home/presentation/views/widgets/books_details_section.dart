@@ -9,7 +9,9 @@ import 'rating_bar.dart';
 class BooksDetailsSection extends StatelessWidget {
   const BooksDetailsSection({
     super.key,
+    required this.bookModel,
   });
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -17,17 +19,18 @@ class BooksDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * .22),
-          child: const CustomBookImage(
-            imageUrl: '00',
+          child: CustomBookImage(
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? "sam",
           ),
         ),
         const SizedBox(
           height: 56,
         ),
         Text(
-          'The Jungle Book',
+          '${bookModel.volumeInfo.title}',
           style: Styles.textStyle30.copyWith(
               fontStyle: FontStyle.italic, fontWeight: FontWeight.w600),
+          textAlign: TextAlign.center,
         ),
         const SizedBox(
           height: 6,
@@ -35,7 +38,7 @@ class BooksDetailsSection extends StatelessWidget {
         Opacity(
           opacity: .7,
           child: Text(
-            'Sami mhd Amin',
+            bookModel.volumeInfo.authors?[0] ?? "Non",
             style: Styles.textStyle18.copyWith(
                 fontStyle: FontStyle.italic, fontWeight: FontWeight.w500),
           ),
@@ -45,8 +48,8 @@ class BooksDetailsSection extends StatelessWidget {
         ),
         RatingBar(
           mainAxisAlignment: MainAxisAlignment.center,
-          count: 0,
-          rating: 0.0,
+          count: bookModel.volumeInfo.ratingsCount ?? 0,
+          rating: bookModel.volumeInfo.averageRating ?? 0.0,
         ),
         const SizedBox(
           height: 46,
