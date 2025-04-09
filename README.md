@@ -1,16 +1,28 @@
-# bookly
+# 📚 Bookly App
+A modern Flutter application that allows users to discover, search, and rate books. Built with smooth animations and clean UI, the app delivers a seamless book-browsing experience.
 
-A new Flutter project.
+# 🔧 Features
+* Browse a wide selection of books with detailed views
 
-## Getting Started
+* Search for specific books or explore similar recommendations
 
-This project is a starting point for a Flutter application.
+* Rate and review books within the app
 
-A few resources to get you started if this is your first Flutter project:
+* Smooth splash screen animation using SingleTickerProviderStateMixin
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* Navigation handled with go_router for seamless transitions
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Organized using MVVM architecture and Cubit for state management
+
+# 🛠️ Tech Stack
+* Framework: Flutter
+
+* State Management: Cubit
+
+* Navigation: go_router
+
+* Architecture: MVVM
+
+* Animations: Ticker-based splash screen animation
+#
+📖 A clean and responsive app for book lovers. Explore the code and UI in the repository below.
